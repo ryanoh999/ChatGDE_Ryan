@@ -1,21 +1,22 @@
-**ChatGDE**
+# ChatGDE
 
 This repo contains the implementation of ChatGDE.
 
-**Table of Contents**
+## Table of Contents
 
-	1.	Introduction
-	2.	Features
-	3.	Experiments
+1. [Introduction](#introduction)
+2. [Features](#features)
+3. [Experiments](#experiments)
 
-**Introduction**
+## Introduction
 
 Efficient groundwater management is essential for environmental sustainability, particularly in regions like California. Groundwater-dependent ecosystems (GDEs) are critical for biodiversity, water quality, and carbon storage but are vulnerable to groundwater depletion. The California Sustainable Groundwater Management Act (SGMA) mandates Groundwater Sustainability Agencies (GSAs) to develop and review Groundwater Sustainability Plans (GSPs), a time-consuming and costly process.
 
 ChatGDE was developed to automate portions of the GSP review process, leveraging large language models (LLMs) like GPT to improve efficiency and reduce costs. By employing techniques like Retrieval Augmented Generation (RAG), fine-tuning, and prompt engineering, ChatGDE provides preliminary evaluations aligned with human reviews, achieving up to 73% agreement with expert evaluations. This represents a significant advancement in applying AI to streamline environmental policy tasks.
 
-**Features**
+## Features
 
+```
 ChatGDE
 ├── GSP_Drafts
 │   ├── Rubrics
@@ -39,27 +40,23 @@ ChatGDE
 ├── FinalPaperVisualizationsNoKey.ipynb
 ├── prompts3.py
 └── prompts_2.py
+```
+
+
 
 This repo is composed of the following:
+- `GSP_Drafts/` Contains PDF files of Groundwater Sustainability Plans (GSPs) for various counties. Add or update files here based on the plans you want to evaluate.
+- `Rubrics/' Contains CSV files of human-scored rubrics corresponding to the GSPs. Add or update files here based on which county’s scoring rubric you want to include.
+- `FinalPaperExperimentsNoKey.ipynb` A Jupyter Notebook containing the experiments performed for the paper, focusing on model optimization and evaluation techniques.
+- `FinalPaperVisualizationsNoKey.ipynb` A Jupyter Notebook containing the visualizations used in the research paper, detailing results and performance metrics.
+- `prompts3.py` Contains the third version of prompts used for the model, reflecting binary classification.
+- `prompts_2.py` Contains the second version of prompts used for the model, with our best prompt engineering results. Includes the "No", "Somewhat" and "Yes" categories.
 
-	•	GSP_Drafts/
-Contains PDF files of Groundwater Sustainability Plans (GSPs) for various counties. Add or update files here based on the plans you want to evaluate.
-	•	Rubrics/
-Contains CSV files of human-scored rubrics corresponding to the GSPs. Add or update files here based on which county’s scoring rubric you want to include.
-	•	FinalPaperExperimentsNoKey.ipynb
-A Jupyter Notebook containing the experiments performed for the paper, focusing on model optimization and evaluation techniques.
-	•	FinalPaperVisualizationsNoKey.ipynb
-A Jupyter Notebook containing the visualizations used in the research paper, detailing results and performance metrics.
-	•	prompts3.py
-Contains the third version of prompts used for the model, reflecting the latest optimizations.
-	•	prompts_2.py
-Contains an earlier version of prompts used for the model, included for reference or alternative evaluations.
-
-**Experiments**
+## Experiments
 
 To optimize ChatGDE’s performance, we conducted a series of experiments, focusing on vector storage, prompt engineering, and model fine-tuning:
 
-Structural Experiments:
+## **Structural Experiments**:
 
 	1.	Vector Storehouse:
 	•	Levels: Compared CHROMA and FAISS for storing text embeddings.
@@ -74,7 +71,7 @@ Structural Experiments:
 	•	Levels: Tested GPT-3.5 Turbo, GPT-4, and GPT-4o.
 	•	Results: Fine-tuned GPT-4o outperformed others, particularly in precision and recall metrics.
 
-Prompt Engineering:
+## **Prompt Engineering**:
 
 	1.	Standardizing Prompts:
 	•	Adjusted formatting for consistency and spelled out acronyms.
@@ -86,7 +83,7 @@ Prompt Engineering:
 	•	Levels: Added instructions for models to include confidence levels with responses.
 	•	Results: Enabled better evaluation of model certainty and performance trade-offs.
 
-Fine-Tuning and Simplification:
+## **Fine-Tuning and Simplification**:
 
 	1.	Binary Classification:
 	•	Merged “No” and “Somewhat” into a single category.
@@ -95,4 +92,4 @@ Fine-Tuning and Simplification:
 	•	Models: Fine-tuned GPT-3.5 and GPT-4o using custom GSP training data.
 	•	Results: Fine-tuned GPT-4o achieved the highest performance (accuracy: 73%, AUCROC: 0.77).
 
-These experiments demonstrate the potential of LLMs to augment, though not entirely replace, human expertise in environmental policy reviews. Future work will focus on ensemble approaches and tesing updated LLMs, possibly outside of the OpenAI ecosystem.
+These experiments demonstrate the potential of LLMs to augment, though not entirely replace, human expertise in environmental policy reviews. Future work will focus on ensemble approaches and testing updated LLMs, possibly outside of the OpenAI ecosystem.
