@@ -41,6 +41,7 @@ ChatGDE
 └── prompts_2.py
 
 This repo is composed of the following:
+
 	•	GSP_Drafts/
 Contains PDF files of Groundwater Sustainability Plans (GSPs) for various counties. Add or update files here based on the plans you want to evaluate.
 	•	Rubrics/
